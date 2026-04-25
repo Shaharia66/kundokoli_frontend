@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { getProducts } from '../api/api';
 import ProductCard from '../components/ProductCard';
@@ -12,7 +12,7 @@ export default function ProductsPage() {
   const [search, setSearch] = useState('');
   const activeCategory = searchParams.get('category') || 'ALL';
 
-  const fetchProducts = () => {
+  const fetchProducts = useCallback(() => {
     setLoading(true);
     const params = {};
     if (activeCategory !== 'ALL') params.category = activeCategory;
@@ -21,9 +21,9 @@ export default function ProductsPage() {
       .then((res) => setProducts(res.data))
       .catch(console.error)
       .finally(() => setLoading(false));
-  };
+  }, [activeCategory, search]);
 
-  useEffect(() => { fetchProducts(); }, [activeCategory]);
+  useEffect(() => { fetchProducts(); }, [fetchProducts]);
 
   const handleSearch = (e) => {
     e.preventDefault();
