@@ -71,7 +71,7 @@ export default function AdminPage() {
     } catch {
       setToast('Failed to save product.');
     } finally {
-      setSaving(false);c
+      setSaving(false);
     }
   };
 
