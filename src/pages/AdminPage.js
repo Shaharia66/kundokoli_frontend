@@ -28,7 +28,7 @@ export default function AdminPage() {
     if (!isAdmin) { navigate('/login'); return; }
     loadProducts();
     loadOrders();
-  }, [isAdmin]);
+  }, [navigate, isAdmin]);
 
   const loadProducts = () => getProducts().then(r => setProducts(r.data)).catch(console.error);
   const loadOrders = () => getAllOrders().then(r => setOrders(r.data)).catch(console.error);

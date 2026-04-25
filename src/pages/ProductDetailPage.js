@@ -26,7 +26,7 @@ export default function ProductDetailPage() {
       })
       .catch(() => navigate('/products'))
       .finally(() => setLoading(false));
-  }, [id]);
+  }, [id,navigate]);
 
   const handleAddToCart = () => {
     for (let i = 0; i < quantity; i++) addToCart(product);
