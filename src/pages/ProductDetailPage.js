@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState ,useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getProductById, getReviews, addReview } from '../api/api';
 import { useCart } from '../context/CartContext';
@@ -18,7 +18,7 @@ export default function ProductDetailPage() {
   const [reviewForm, setReviewForm] = useState({ reviewerName: '', reviewerEmail: '', comment: '', rating: 5 });
   const [submitting, setSubmitting] = useState(false);
 
-  useEffect(() => {
+  const fetchData = useCallback(() => {
     Promise.all([getProductById(id), getReviews(id)])
       .then(([prodRes, revRes]) => {
         setProduct(prodRes.data);
@@ -26,7 +26,11 @@ export default function ProductDetailPage() {
       })
       .catch(() => navigate('/products'))
       .finally(() => setLoading(false));
-  }, [id,navigate]);
+  }, [id, navigate]); // 👈 dependencies go here
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   const handleAddToCart = () => {
     for (let i = 0; i < quantity; i++) addToCart(product);
