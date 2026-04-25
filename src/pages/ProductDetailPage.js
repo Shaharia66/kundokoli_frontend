@@ -29,8 +29,8 @@ export default function ProductDetailPage() {
   }, [id, navigate]); // dependencies go here
 
   useEffect(() => {
-  fetchProducts();
-}, [fetchProducts]);
+  fetchData();
+}, [fetchData]);
 
   const handleAddToCart = () => {
     for (let i = 0; i < quantity; i++) addToCart(product);
