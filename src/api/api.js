@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://kundokoli-backend.onrender.com';
+const BASE_URL = 'https://kundokoli-backend.onrender.com/api';
 
 // Attach JWT token to every request if present
 axios.interceptors.request.use((config) => {
