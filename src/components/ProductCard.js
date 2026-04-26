@@ -17,7 +17,7 @@ export default function ProductCard({ product }) {
     <div className="product-card" onClick={() => navigate(`/products/${product.id}`)}>
       <div className="product-card-img">
         {product.imageUrl
-          ? <img src={`http://localhost:8080${product.imageUrl}`} alt={product.name} />
+          ? <img src={`https://kundokoli-backend.onrender.com${product.imageUrl}`} alt={product.name} />
           : <span style={{ fontSize: 52 }}>{CATEGORY_EMOJI[product.category] || '🎁'}</span>
         }
       </div>

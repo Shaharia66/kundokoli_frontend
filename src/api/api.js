@@ -1,4 +1,6 @@
 import axios from 'axios';
+export const BASE_URL = 'https://kundokoli-backend.onrender.com';
+export const API_URL = `${BASE_URL}/api`;
 
 const BASE_URL = 'https://kundokoli-backend.onrender.com/api';
 

@@ -72,7 +72,7 @@ export default function ProductDetailPage() {
         {/* Image */}
         <div style={{ background: '#f0ece7', aspectRatio: '3/4', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 4, overflow: 'hidden' }}>
           {product.imageUrl
-            ? <img src={`http://localhost:8080${product.imageUrl}`} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            ? <img src={`https://kundokoli-backend.onrender.com${product.imageUrl}`} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             : <span style={{ fontSize: 80 }}>🥻</span>
           }
         </div>

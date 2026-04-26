@@ -98,15 +98,19 @@ export default function AdminPage() {
   const handleDeleteOrder = async (id) => {
   if (!window.confirm('Delete this cancelled order?')) return;
   try {
-    await axios.delete(`http://localhost:8080/api/orders/${id}`, {
-      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+    const token = localStorage.getItem('token');
+    await axios.delete(`https://kundokoli-backend.onrender.com/api/orders/${id}`, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
     });
-    setToast('Order deleted.');
+    setToast('Order deleted!');
     loadOrders();
-  } catch {
-    setToast('Failed to delete order.');
+  } catch (err) {
+    console.error(err);
+    setToast('Failed: ' + err.response?.status);
   }
-  };
+};
 
   const set = (field) => (e) => setForm(f => ({ ...f, [field]: e.target.value }));
 

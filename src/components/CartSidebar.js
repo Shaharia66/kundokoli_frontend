@@ -33,7 +33,7 @@ export default function CartSidebar({ onClose }) {
               <div key={product.id} className="cart-item">
                 <div className="cart-item-img" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '28px' }}>
                   {product.imageUrl
-                    ? <img src={`http://localhost:8080${product.imageUrl}`} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    ? <img src={`https://kundokoli-backend.onrender.com${product.imageUrl}`} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     : categoryEmoji(product.category)
                   }
                 </div>
