@@ -40,8 +40,14 @@ export const placeOrder = (orderData) =>
 export const getAllOrders = () =>
   axios.get(`${BASE_URL}/orders`);
 
+export const getOrderById = (id) =>
+  axios.get(`${BASE_URL}/orders/${id}`);
+
 export const updateOrderStatus = (id, status) =>
   axios.put(`${BASE_URL}/orders/${id}/status`, null, { params: { status } });
+
+export const deleteOrder = (id) =>
+  axios.delete(`${BASE_URL}/orders/${id}`);
 
 // ── Reviews ───────────────────────────────────────
 export const getReviews = (productId) =>
